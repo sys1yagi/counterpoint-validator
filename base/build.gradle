@@ -16,9 +16,12 @@ apply plugin: 'kotlin'
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile project(':base')
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.github.sys1yagi:kmockito:0.1.2'
+    testCompile 'org.assertj:assertj-core:3.5.2'
 }

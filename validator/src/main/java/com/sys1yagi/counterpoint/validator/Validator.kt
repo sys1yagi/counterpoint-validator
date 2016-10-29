@@ -1,5 +1,7 @@
 package com.sys1yagi.counterpoint.validator
 
+import com.sys1yagi.counterpoint.PitchName
+
 class Validator {
     companion object {
         @JvmStatic

@@ -1,4 +1,4 @@
-package com.sys1yagi.counterpoint.validator
+package com.sys1yagi.counterpoint
 
 enum class PitchName {
     C,
