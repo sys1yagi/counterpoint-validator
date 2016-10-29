@@ -1,0 +1,3 @@
+rootProject.name = 'conterpoint.validator'
+include 'validator'
+
