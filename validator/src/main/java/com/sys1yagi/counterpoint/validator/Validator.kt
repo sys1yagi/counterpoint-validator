@@ -1,6 +1,6 @@
 package com.sys1yagi.counterpoint.validator
 
-import com.sys1yagi.counterpoint.PitchName
+import com.sys1yagi.counterpoint.Interval
 
 class Validator {
     companion object {
@@ -8,15 +8,12 @@ class Validator {
         fun main(args: Array<String>) {
             // data format
             // C4,G4
-            // D4,C5
-            println("moge")
+            // DF4,C5
         }
     }
 
-    data class Pair(val base: PitchName, val counter: PitchName)
-
-    fun checkValidWholeNotesCounterPoint(melody: List<Pair>) {
-
+    fun checkValidWholeNotesCounterPoint(melody: List<Interval>) {
+        // TODO
     }
 }
 

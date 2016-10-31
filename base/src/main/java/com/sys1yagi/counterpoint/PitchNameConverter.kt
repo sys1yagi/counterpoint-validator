@@ -4,52 +4,52 @@ import com.sys1yagi.counterpoint.exception.InvalidPitchNameException
 
 object PitchNameConverter {
 
-    @Throws(Exception::class)
-    fun stringToPitchName(pitchName: String): PitchName {
+    @Throws(InvalidPitchNameException::class)
+    fun stringToPitchName(pitchName: String): Pitch.Name {
         if (pitchName.isEmpty()) {
             throw InvalidPitchNameException("empty")
         }
         return pitchName.toUpperCase().let {
             when (it[0]) {
                 'C' -> {
-                    return PitchName.C
+                    return Pitch.Name.C
                 }
                 'D' -> {
                     if (it[1] == 'F') {
-                        PitchName.DF
+                        Pitch.Name.DF
                     } else {
-                        PitchName.D
+                        Pitch.Name.D
                     }
                 }
                 'E' -> {
                     if (it[1] == 'F') {
-                        PitchName.EF
+                        Pitch.Name.EF
                     } else {
-                        PitchName.E
+                        Pitch.Name.E
                     }
                 }
                 'F' -> {
-                    PitchName.F
+                    Pitch.Name.F
                 }
                 'G' -> {
                     if (it[1] == 'F') {
-                        PitchName.GF
+                        Pitch.Name.GF
                     } else {
-                        PitchName.G
+                        Pitch.Name.G
                     }
                 }
                 'A' -> {
                     if (it[1] == 'F') {
-                        PitchName.AF
+                        Pitch.Name.AF
                     } else {
-                        PitchName.A
+                        Pitch.Name.A
                     }
                 }
                 'B' -> {
                     if (it[1] == 'F') {
-                        PitchName.BF
+                        Pitch.Name.BF
                     } else {
-                        PitchName.B
+                        Pitch.Name.B
                     }
                 }
                 else -> {

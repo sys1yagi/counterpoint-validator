@@ -1,19 +1,30 @@
 package com.sys1yagi.counterpoint
 
 
-class Interval(val base: PitchName, val counter: PitchName) {
+class Interval(val base: Pitch, val counter: Pitch) {
     enum class Type {
         Consonance,
         Dissonance
     }
 
     val type: Type by lazy {
-        Type.Consonance
+        when (normalizationIntervalInt) {
+            3, 5, 6, 8 -> {
+                Type.Consonance
+            }
+            else -> {
+                Type.Dissonance
+            }
+        }
     }
 
-    companion object {
-        fun createInterval(base: PitchName, counter: PitchName): Interval {
-            return Interval(base, counter)
-        }
+    val normalizationIntervalInt by lazy {
+        1
+    }
+    val intervalInt by lazy {
+        // TODO
+        // 半音で数字を出す
+        // PitchNameを定数にせず、数値を持つようにする
+        1
     }
 }
