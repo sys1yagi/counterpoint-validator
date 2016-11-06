@@ -5,13 +5,13 @@ import com.sys1yagi.counterpoint.validator.exception.WholeNoteCounterPointInvali
 import org.junit.Before
 import org.junit.Test
 
-class Perfect8thRuleTest {
+class Perfect5thConsecutiveRuleTest {
 
-    lateinit var rule: Perfect8thRule
+    lateinit var rule: Perfect5thConsecutiveRule
 
     @Before
     fun setUp() {
-        rule = Perfect8thRule()
+        rule = Perfect5thConsecutiveRule()
     }
 
     @Test
@@ -23,20 +23,13 @@ class Perfect8thRuleTest {
             )
             rule.validation(intervals)
         }
-        run {
-            val intervals = listOf(
-                    Interval.create("C4", "C6"),
-                    Interval.create("C4", "C6")
-            )
-            rule.validation(intervals)
-        }
     }
 
     @Test(expected = WholeNoteCounterPointInvalidException::class)
     fun samePitch() {
         val intervals = listOf(
-                Interval.create("C4", "C5"),
-                Interval.create("C4", "C5")
+                Interval.create("C4", "G4"),
+                Interval.create("C4", "G4")
         )
         rule.validation(intervals)
     }
@@ -44,8 +37,17 @@ class Perfect8thRuleTest {
     @Test(expected = WholeNoteCounterPointInvalidException::class)
     fun consecutivePerfect5() {
         val intervals = listOf(
-                Interval.create("C4", "C5"),
-                Interval.create("D4", "D5")
+                Interval.create("C4", "G4"),
+                Interval.create("D4", "A4")
+        )
+        rule.validation(intervals)
+    }
+
+    @Test(expected = WholeNoteCounterPointInvalidException::class)
+    fun octave() {
+        val intervals = listOf(
+                Interval.create("C4", "G5"),
+                Interval.create("D4", "A6")
         )
         rule.validation(intervals)
     }
@@ -58,8 +60,8 @@ class Perfect8thRuleTest {
                 Interval.create("E4", "G5"),
                 Interval.create("A4", "F5"),
                 Interval.create("G4", "G5"),
-                Interval.create("D4", "D5"), // perfect 8th
-                Interval.create("C5", "C5"), // perfect 8th
+                Interval.create("D4", "A4"), // perfect 5th
+                Interval.create("F4", "C5"), // perfect 5th
                 Interval.create("E4", "C5"),
                 Interval.create("D4", "B4"),
                 Interval.create("C4", "C5")
@@ -75,9 +77,9 @@ class Perfect8thRuleTest {
                 Interval.create("E4", "G5"),
                 Interval.create("A4", "F5"),
                 Interval.create("G4", "G5"),
-                Interval.create("D4", "D5"), // perfect 8th
+                Interval.create("D4", "A4"), // perfect 5th
                 Interval.create("E4", "C5"),
-                Interval.create("F4", "F5"), // perfect 8th
+                Interval.create("F4", "C5"), // perfect 5th
                 Interval.create("D4", "B4"),
                 Interval.create("C4", "C5")
         )
