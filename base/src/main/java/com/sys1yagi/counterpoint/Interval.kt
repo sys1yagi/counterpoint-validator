@@ -38,10 +38,19 @@ class Interval(val base: Pitch, val counter: Pitch) {
     val normalizationIntervalInt by lazy {
         intervalInt % 12
     }
+
     val intervalInt by lazy {
-        val basePos = base.name.pos + base.level * 12
-        val counterPos = counter.name.pos + counter.level * 12
+        val basePos = base.pos()
+        val counterPos = counter.pos()
         Math.abs(basePos - counterPos)
+    }
+
+    val isPerfect5th by lazy {
+        normalizationIntervalInt == INTERVAL_PERFECT_5
+    }
+
+    override fun toString(): String {
+        return "${base.name}${base.level}, ${counter.name}${counter.level}"
     }
 
 }
