@@ -28,6 +28,6 @@ class File2IntervalsTest {
 
     @Test(expected = InvalidPitchNameException::class)
     fun invalidPitchNameException(){
-        File2Intervals.wholeNotesFromFile(File("../score/sample_invalid.txt"))
+        File2Intervals.wholeNotesFromFile(File("../score/sample_invalid_format.txt"))
     }
 }

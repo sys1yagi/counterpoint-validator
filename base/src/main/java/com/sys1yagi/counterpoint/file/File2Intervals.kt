@@ -1,7 +1,6 @@
 package com.sys1yagi.counterpoint.file
 
 import com.sys1yagi.counterpoint.Interval
-import com.sys1yagi.counterpoint.PitchConverter
 import com.sys1yagi.counterpoint.exception.InvalidPitchNameException
 import java.io.File
 import java.io.FileNotFoundException
@@ -12,9 +11,8 @@ object File2Intervals {
     fun wholeNotesFromFile(file: File): List<Interval> {
         return file.inputStream().bufferedReader().readLines().map {
             val pitches = it.split(",")
-            Interval(
-                    PitchConverter.stringToPitch(pitches[0]),
-                    PitchConverter.stringToPitch(pitches[1])
+            Interval.create(
+                    pitches[0], pitches[1]
             )
         }
     }

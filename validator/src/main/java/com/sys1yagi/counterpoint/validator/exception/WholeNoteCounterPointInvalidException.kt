@@ -1,3 +1,3 @@
 package com.sys1yagi.counterpoint.validator.exception
 
-class WholeNoteCounterPointInvalidException : Exception()
+class WholeNoteCounterPointInvalidException(message:String) : Exception(message)
