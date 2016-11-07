@@ -49,6 +49,10 @@ class Interval(val base: Pitch, val counter: Pitch) {
         normalizationIntervalInt == INTERVAL_PERFECT_5
     }
 
+    val isPerfect8th by lazy {
+        normalizationIntervalInt == 0
+    }
+
     override fun toString(): String {
         return "${base.name}${base.level}, ${counter.name}${counter.level}"
     }
