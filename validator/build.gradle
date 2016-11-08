@@ -17,3 +17,10 @@ dependencies {
     testCompile 'com.github.sys1yagi:kmockito:0.1.2'
     testCompile 'org.assertj:assertj-core:3.5.2'
 }
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.sys1yagi.counterpoint.validator.Validator'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
