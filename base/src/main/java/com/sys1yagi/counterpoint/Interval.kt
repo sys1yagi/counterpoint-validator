@@ -8,6 +8,7 @@ class Interval(val base: Pitch, val counter: Pitch) {
         const val INTERVAL_PERFECT_4 = 5
         const val INTERVAL_PERFECT_5 = 7
         const val INTERVAL_MAJOR_6 = 9
+        const val INTERVAL_MINOR_6 = 8
         const val INTERVAL_PERFECT_8 = 12
         fun create(base:String, counter:String) = Interval(
                 PitchConverter.stringToPitch(base),
