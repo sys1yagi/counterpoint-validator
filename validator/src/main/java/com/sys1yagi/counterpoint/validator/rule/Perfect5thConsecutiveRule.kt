@@ -19,7 +19,7 @@ class Perfect5thConsecutiveRule : WholeNoteCounterPointRule {
     }
 
     private fun check(index: Int, first: Int, second: Int) {
-        if (first == Interval.INTERVAL_PERFECT_5 && second == Interval.INTERVAL_PERFECT_5) {
+        if (first == Interval.INTERVAL_PERFECT_5TH && second == Interval.INTERVAL_PERFECT_5TH) {
             throw WholeNoteCounterPointInvalidException("Consecutive perfect 5th. pos=$index")
         }
     }

@@ -17,6 +17,12 @@ class Pitch(val name: Name, val level: Int) {
     }
 
     fun pos() = name.pos + level * 12
-    fun isUpDirection(next:Pitch) =
+    fun isUpDirection(next: Pitch) =
             (pos() - next.pos()) < 0
+
+    fun isLeap(next: Pitch) =
+            Math.abs(pos() - next.pos()) > 2
+
+    fun isNotMotion(next: Pitch) =
+            pos() == next.pos()
 }

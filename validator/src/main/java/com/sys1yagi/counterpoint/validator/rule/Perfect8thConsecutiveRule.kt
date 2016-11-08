@@ -19,7 +19,7 @@ class Perfect8thConsecutiveRule : WholeNoteCounterPointRule {
     }
 
     private fun check(index: Int, first: Int, second: Int) {
-        if (first == Interval.INTERVAL_PERFECT_8 && second == Interval.INTERVAL_PERFECT_8) {
+        if (first == Interval.INTERVAL_PERFECT_8TH && second == Interval.INTERVAL_PERFECT_8TH) {
             throw WholeNoteCounterPointInvalidException("Consecutive perfect 8th. pos=$index")
         }
     }

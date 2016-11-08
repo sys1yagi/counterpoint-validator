@@ -4,12 +4,12 @@ package com.sys1yagi.counterpoint
 class Interval(val base: Pitch, val counter: Pitch) {
 
     companion object{
-        const val INTERVAL_MAJOR_3 = 4
-        const val INTERVAL_PERFECT_4 = 5
-        const val INTERVAL_PERFECT_5 = 7
-        const val INTERVAL_MAJOR_6 = 9
-        const val INTERVAL_MINOR_6 = 8
-        const val INTERVAL_PERFECT_8 = 12
+        const val INTERVAL_MAJOR_3TH = 4
+        const val INTERVAL_PERFECT_4TH = 5
+        const val INTERVAL_PERFECT_5TH = 7
+        const val INTERVAL_MAJOR_6TH = 9
+        const val INTERVAL_MINOR_6TH = 8
+        const val INTERVAL_PERFECT_8TH = 12
         fun create(base:String, counter:String) = Interval(
                 PitchConverter.stringToPitch(base),
                 PitchConverter.stringToPitch(counter)
@@ -27,7 +27,7 @@ class Interval(val base: Pitch, val counter: Pitch) {
 
     val type: Type by lazy {
         when (normalizationIntervalInt) {
-            0, INTERVAL_MAJOR_3, INTERVAL_PERFECT_5, INTERVAL_MAJOR_6 -> {
+            0, INTERVAL_MAJOR_3TH, INTERVAL_PERFECT_5TH, INTERVAL_MAJOR_6TH -> {
                 Type.Consonance
             }
             else -> {
@@ -46,8 +46,12 @@ class Interval(val base: Pitch, val counter: Pitch) {
         Math.abs(basePos - counterPos)
     }
 
+    val isPerfect4th by lazy {
+        normalizationIntervalInt == INTERVAL_PERFECT_4TH
+    }
+
     val isPerfect5th by lazy {
-        normalizationIntervalInt == INTERVAL_PERFECT_5
+        normalizationIntervalInt == INTERVAL_PERFECT_5TH
     }
 
     val isPerfect8th by lazy {
