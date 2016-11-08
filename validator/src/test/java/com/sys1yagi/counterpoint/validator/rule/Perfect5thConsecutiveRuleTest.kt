@@ -16,13 +16,11 @@ class Perfect5thConsecutiveRuleTest {
 
     @Test
     fun valid() {
-        run {
-            val intervals = listOf(
-                    Interval.create("C4", "G4"),
-                    Interval.create("D4", "E4")
-            )
-            rule.validation(intervals)
-        }
+        val intervals = listOf(
+                Interval.create("C4", "G4"),
+                Interval.create("D4", "E4")
+        )
+        rule.validation(intervals)
     }
 
     @Test(expected = WholeNoteCounterPointInvalidException::class)
